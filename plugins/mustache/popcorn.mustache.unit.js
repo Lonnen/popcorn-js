@@ -1,7 +1,7 @@
 test('Popcorn Mustache Plugin', function () {
 
   var popped = Popcorn('#video'),
-      expects = 6,
+      expects = 7,
       count = 0,
       mustacheDiv = document.getElementById('mustache-div');
 
@@ -100,6 +100,8 @@ test('Popcorn Mustache Plugin', function () {
     }
 
     if (t === 16) {
+      equals( delayedGetScript.count === 1 );
+      plus();
       video.pause();
     }
 

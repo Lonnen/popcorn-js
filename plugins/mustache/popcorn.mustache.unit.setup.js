@@ -1,6 +1,7 @@
 var delayedGetScript = {
     fn: Popcorn.getScript,
     url: "",
+    count: 0,
     execute: function() {
                this.fn(this.url);
              }
@@ -8,5 +9,6 @@ var delayedGetScript = {
 
 Popcorn.getScript = function(scriptURL){
   delayedGetScript.url = scriptURL;
+  delayedGetScript.count++;
 }
 
