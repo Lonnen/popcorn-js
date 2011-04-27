@@ -86,13 +86,15 @@
 
   Popcorn.plugin( 'mustache' , function( options ) {
 
-    Popcorn.getScript('https://github.com/janl/mustache.js/raw/master/mustache.js');
-
-    var getData, data, getTemplate, template;
-
-    var shouldReload = !!options.dynamic,
+    var getData, 
+        data,
+        getTemplate, 
+        template,
+        shouldReload = !!options.dynamic,
         typeOfTemplate = typeof options.template,
         typeOfData = typeof options.data;
+
+    Popcorn.getScript('https://github.com/janl/mustache.js/raw/master/mustache.js') ;
 
     if ( typeOfTemplate === 'function' ) {
       if ( !shouldReload ) {
@@ -122,6 +124,10 @@
 
     return {
       start: function( event, options ) {
+        if ( typeof Mustache === 'undefined' ) {
+          return;
+        }
+
         // if dynamic, freshen json data on every call to start, just in case.
         if ( getData ) {
           data = getData( options );
