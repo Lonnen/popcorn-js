@@ -10,5 +10,5 @@ var delayedGetScript = {
 Popcorn.getScript = function(scriptURL){
   delayedGetScript.url = scriptURL;
   delayedGetScript.count++;
-}
+};
 
